@@ -1,0 +1,52 @@
+rest:
+    resource: http://<local_batterx_IP>/api.php?get=currentstate
+    method: GET
+    sensor:
+      - name: batterx_current_home_power_usage
+        device_class: power
+        state_class: measurement
+        unit_of_measurement: "W"
+        force_update: true
+        value_template: "{{value_json['2913']['0']}}"
+      - name: batterx_current_battery_input
+        device_class: power
+        state_class: measurement
+        unit_of_measurement: "W"
+        force_update: true
+        value_template: "{{value_json['353']['1']}}"
+      - name: batterx_current_battery_output
+        device_class: power
+        state_class: measurement
+        unit_of_measurement: "W"
+        force_update: true
+        value_template: "{{value_json['1377']['1']}}"
+      - name: batterx_current_solar_output
+        device_class: power
+        state_class: measurement
+        unit_of_measurement: "W"
+        force_update: true
+        value_template: "{{value_json['1634']['0']}}"
+      - name: batterx_current_grid_consumption
+        device_class: power
+        state_class: measurement
+        unit_of_measurement: "W"
+        force_update: true
+        value_template: "{{value_json['2913']['0']}}"
+      
+sensor:
+  - platform: integration
+    source: sensor.batterx_current_home_power_usage
+    name: sensor.batterx_home_power_usage
+    round: 2
+  - platform: integration
+    source: sensor.batterx_current_solar_output
+    name: batterx_solar_output
+    round: 2
+  - platform: integration
+    source: sensor.batterx_current_battery_input
+    name: batterx_battery_input
+    round: 2
+  - platform: integration
+    source: sensor.batterx_current_battery_output
+    name: batterx_battery_output
+    round: 2
