@@ -36,17 +36,17 @@ rest:
 sensor:
   - platform: integration
     source: sensor.batterx_current_home_power_usage
-    name: sensor.batterx_home_power_usage
+    name: batterx_home_power_usage_KW
     round: 2
   - platform: integration
     source: sensor.batterx_current_solar_output
-    name: batterx_solar_output
+    name: batterx_solar_output_KW
     round: 2
   - platform: integration
     source: sensor.batterx_current_battery_input
-    name: batterx_battery_input
+    name: batterx_battery_input_KW
     round: 2
   - platform: integration
     source: sensor.batterx_current_battery_output
-    name: batterx_battery_output
+    name: batterx_battery_output_KW
     round: 2
