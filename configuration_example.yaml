@@ -32,6 +32,12 @@ rest:
         unit_of_measurement: "W"
         force_update: true
         value_template: "{{value_json['2913']['0']}}"
+      - name: batterx_current_grid_frequency
+        device_class: frequency
+        state_class: measurement
+        unit_of_measurement: "Hz"
+        force_update: true
+        value_template: "{{value_json['2914']['0'] | float / 100}}"
       
 sensor:
   - platform: integration
