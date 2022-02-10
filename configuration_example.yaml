@@ -38,6 +38,12 @@ rest:
         unit_of_measurement: "Hz"
         force_update: true
         value_template: "{{value_json['2914']['0'] | float / 100}}"
+      - name: batterx_current_battery_charge
+        device_class: battery
+        state_class: measurement
+        unit_of_measurement: "%"
+        force_update: true
+        value_template: "{{value_json['1074']['1'] }}"        
       
 sensor:
   - platform: integration
